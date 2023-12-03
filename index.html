@@ -1,99 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - CV</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <header>
-        <div class="header-content">
-            <h1>Your Name</h1>
-            <p>Researcher, Lecturer, School Coordinator</p>
-        </div>
-    </header>
-
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>
-                I am a dedicated and passionate individual with expertise in research, lecturing, and coordinating academic activities.
-                My goal is to contribute to the advancement of knowledge and foster a positive learning environment.
-            </p>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="section-content">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <h3>M.Sc. in Informations</h3>
-                    <p>University Name, Graduation Year: 2022</p>
-                </li>
-                <!-- Add more education entries as needed -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="section-content">
-            <h2>Work Experience</h2>
-            <ul>
-                <li>
-                    <h3>Intern Research</h3>
-                    <p>Research Institute, Start Date - Present</p>
-                    <p>Conducted groundbreaking research in the field of Computer Science, published a paper.</p>
-                </li>
-                <li>
-                    <h3>Lecturer</h3>
-                    <p>University Name, Start Date - Present</p>
-                    <p>Delivered engaging lectures, mentored students, and contributed to curriculum development.</p>
-                </li>
-                <li>
-                    <h3>School Coordinator</h3>
-                    <p>School Name, Start Date - Present</p>
-                    <p>Coordinated academic activities, managed staff, and facilitated communication between departments.</p>
-                </li>
-                <!-- Add more experience entries as needed -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>Research Methodology</li>
-                <li>Data Analysis</li>
-                <li>Lecturing and Presentation</li>
-                <li>Project Coordination</li>
-                <li>Team Leadership</li>
-                <!-- Add more skills as needed -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="section-content">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <script src="scripts.js"></script>
-</body>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="device-width, initial-scale=1">
+  <title>Taylor Swift Tribute Page</title>
+  <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+  <main id="main">
+    <h1 id="title">Taylor Swift</h1>
+    <div id="img-div">
+      <img id="image" src="https://images.lifestyleasia.com/wp-content/uploads/sites/3/2023/09/27113504/taylor-swift-eras-tour-movie.jpeg">
+      <div id="img-caption">
+      <p>Taylor Swift on her record-breaking tour, <i>Taylor Swift: The Eras Tour</i>.</p>
+     </div>
+    </div>
+    <div id="tribute-info">
+      <p>Here's a timeline of key events in Taylor Swift's life.</p>
+      <ul>
+        <li>Taylor Alison Swift is born in Reading, Pennsylvania.</li>
+        <li>Swift's family relocates to Wyomissing, Pennsylvania. Taylor becomes interested in music and starts performing at local events.</li>
+        <li>Swift begins visiting Nashville, Tennessee, to pursue a career in country music.</li>
+        <li>She signs a music publishing deal with Sony/ATV, becoming the youngest signing in the company's history.</li>
+        <li>Taylor Swift releases her self-titled debut album, which includes hit singles like "Tim McGraw" and "Teardrops on My Guitar."</li>
+        <li>Swift releases her second album, "Fearless," which includes hits like "Love Story" and "You Belong with Me."</li>
+        <li>She wins four Grammy Awards, including Album of the Year, making her the youngest person to receive this honor.</li>
+        <li>Swift releases the album "Speak Now," entirely written by herself.</li>
+        <li>"Red," her fourth studio album, is released, featuring a mix of country and pop elements.</li>
+        <li>Swift releases "1989," a full-pop album, which includes chart-toppers like "Shake It Off" and "Blank Space."</li>
+        <li>Swift takes a hiatus from public appearances and social media.</li>
+        <li>She returns with the album "Reputation," showcasing a darker and edgier image.</li>
+        <li>Swift releases "Lover," a more romantic and upbeat album.</li>
+        <li>During the COVID-19 pandemic, Swift surprises fans by releasing two albums, "Folklore" and "Evermore," showcasing a shift to indie and alternative sounds.</li>
+        <li>Swift begins re-recording her early albums after a dispute over the ownership of her master recordings.</li>
+        <li>She releases "Fearless (Taylor's Version)" and later "Red (Taylor's Version)."</li>
+        <li>Swift is involved in activism, speaking out on issues such as LGBTQ+ rights and the 2020 United States presidential election.</li>
+        <li>In November, she releases "Red (Taylor's Version)," which includes new recordings and additional songs.</li>
+      </ul>
+      <p>To learn more about Taylor Swift, visit her
+      <a id="tribute-link" target="_blank" href="https://en.wikipedia.org/wiki/Taylor_Swift">Wikipedia Page</a>.</p>
+    </div>
+  </main>
+ </body>
 </html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+* {
+font-family: Verdana;
+background-color:	#f8f7f0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  display: block;
+}
+
+#tribute-info > ul > li{
+  text-align: left;
+  padding: 15px;
+}
+
+h1 {
+  color: #bde7f9;
+  padding: 20px
+}
+
+#tribute-info p {
+  margin-bottom: 30px;
+  margin-top: 45px;
+  font-weight: bold;
+}
+
+
+#img-caption, #tribute-info p, #tribute-link p, h1 {
+ text-align: center;
+}
+
+
+#img-div {
+  padding: 20px;
+  padding-bottom: 5px;
+  background-color: #ffff;
+}
+
+#img-caption p, i {
+  background-color: #ffff
+}
