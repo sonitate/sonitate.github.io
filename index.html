@@ -1,139 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonita's CV</title>
-  <style>
-    /* General styles */
-
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #f0f0f0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    h1, h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 5px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonita - Curriculum Vitae</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+
     <div class="container">
-      <h1>Sonita</h1>
-      <p class="subtitle">Software Engineer</p>
-    </div>
-  </header>
 
-  <main>
-    <div class="container">
-      <section id="about">
-        <h2>About Me</h2>
-        <p>A brief description of your background, goals, and experience.</p>
-      </section>
+        <header>
+            <h1>Sonita</h1>
+            <p>Curriculum Vitae</p>
+        </header>
 
-      <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-          <li>Skill 1</li>
-          <li>Skill 2</li>
-          <li>Skill 3</li>
-        </ul>
-      </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I am a dedicated and experienced professional with a passion for [Your Field].
+                My expertise includes [Your Skills].
+                I am committed to [Your Career Objective].
+            </p>
+        </section>
 
-      <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-          <li>
-            <h3>Job Title 1</h3>
-            <p>Company Name | Dates of Employment</p>
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <h3>Job Title</h3>
+                <p>Company Name | Location | Date Range</p>
+                <p>Description of responsibilities and achievements in this role.</p>
+            </div>
+            <!-- Add more experience entries as needed -->
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Degree in Your Field</h3>
+                <p>University Name | Graduation Year</p>
+            </div>
+            <!-- Add more education entries as needed -->
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
             <ul>
-              <li>Responsibility 1</li>
-              <li>Responsibility 2</li>
-              <li>Responsibility 3</li>
+                <li>Skill 1</li>
+                <li>Skill 2</li>
+                <!-- Add more skills as needed -->
             </ul>
-          </li>
-          <li>
-            <h3>Job Title 2</h3>
-            <p>Company Name | Dates of Employment</p>
-            <ul>
-              <li>Responsibility 1</li>
-              <li>Responsibility 2</li>
-              <li>Responsibility 3</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+        </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <ul>
-          <li>
-            <h3>Degree Name</h3>
-            <p>Institution Name | Dates of Attendance</p>
-          </li>
-          <li>
-            <h3>Degree Name</h3>
-            <p>Institution Name | Dates of Attendance</p>
-          </li>
-        </ul>
-      </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <ul>
-          <li><a href="mailto:sonita@example.com">sonita@example.com</a></li>
-          <li><a href="https://www.linkedin.com/in/sonita">LinkedIn</a></li>
-        </ul>
-      </section>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
     </div>
-  </main>
 
-  <script>
-    const navItems = document.querySelectorAll('nav li');
-
-    for (const navItem of navItems) {
-      navItem.addEventListener('click', (event) => {
-        const targetSection = event.target.getAttribute('href');
-        const targetElement = document.querySelector(targetSection);
-
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      });
-    }
-  </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
