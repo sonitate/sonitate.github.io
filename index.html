@@ -3,142 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Curriculum Vitae</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        nav {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #555;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            color: #007bff;
-        }
-
-        .contact-info {
-            margin-bottom: 20px;
-        }
-
-        .contact-info div {
-            margin-bottom: 10px;
-        }
-
-        .skills {
-            margin-bottom: 30px;
-        }
-
-        .skills ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .skills li {
-            background-color: #007bff;
-            color: #fff;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        .editable {
-            display: none;
-        }
-
-        .edit-button {
-            cursor: pointer;
-            color: #007bff;
-            text-decoration: underline;
-        }
-    </style>
+    <title>Your Name - CV</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <h1>Your Name</h1>
-        <p>Curriculum Vitae</p>
+        <div class="header-content">
+            <h1>Your Name</h1>
+            <p>Researcher, Lecturer, School Coordinator</p>
+        </div>
     </header>
 
-    <nav>
-        <a href="#contact">Contact</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-    </nav>
-
-    <section id="contact">
-        <div class="contact-info">
-            <div>Email: <span id="email" class="editable" contenteditable="true">your.email@example.com</span>
-                <span id="edit-email" class="edit-button" onclick="toggleEditable('email')">Edit</span>
-            </div>
-            <div>Phone: <span id="phone" class="editable" contenteditable="true">(123) 456-7890</span>
-                <span id="edit-phone" class="edit-button" onclick="toggleEditable('phone')">Edit</span>
-            </div>
-            <div>LinkedIn: <span id="linkedin" class="editable" contenteditable="true">linkedin.com/in/yourname</span>
-                <span id="edit-linkedin" class="edit-button" onclick="toggleEditable('linkedin')">Edit</span>
-            </div>
-            <div>GitHub: <span id="github" class="editable" contenteditable="true">github.com/yourusername</span>
-                <span id="edit-github" class="edit-button" onclick="toggleEditable('github')">Edit</span>
-            </div>
+    <section id="about">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p>
+                I am a dedicated and passionate individual with expertise in research, lecturing, and coordinating academic activities.
+                My goal is to contribute to the advancement of knowledge and foster a positive learning environment.
+            </p>
         </div>
     </section>
 
     <section id="education">
-        <!-- Education details go here -->
+        <div class="section-content">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <h3>M.Sc. in Informations</h3>
+                    <p>University Name, Graduation Year: 2022</p>
+                </li>
+                <!-- Add more education entries as needed -->
+            </ul>
+        </div>
     </section>
 
     <section id="experience">
-        <!-- Experience details go here -->
+        <div class="section-content">
+            <h2>Work Experience</h2>
+            <ul>
+                <li>
+                    <h3>Intern Research</h3>
+                    <p>Research Institute, Start Date - Present</p>
+                    <p>Conducted groundbreaking research in the field of Computer Science, published a paper.</p>
+                </li>
+                <li>
+                    <h3>Lecturer</h3>
+                    <p>University Name, Start Date - Present</p>
+                    <p>Delivered engaging lectures, mentored students, and contributed to curriculum development.</p>
+                </li>
+                <li>
+                    <h3>School Coordinator</h3>
+                    <p>School Name, Start Date - Present</p>
+                    <p>Coordinated academic activities, managed staff, and facilitated communication between departments.</p>
+                </li>
+                <!-- Add more experience entries as needed -->
+            </ul>
+        </div>
     </section>
 
     <section id="skills">
-        <!-- Skills details go here -->
+        <div class="section-content">
+            <h2>Skills</h2>
+            <ul>
+                <li>Research Methodology</li>
+                <li>Data Analysis</li>
+                <li>Lecturing and Presentation</li>
+                <li>Project Coordination</li>
+                <li>Team Leadership</li>
+                <!-- Add more skills as needed -->
+            </ul>
+        </div>
     </section>
 
-    <script>
-        function toggleEditable(fieldId) {
-            const field = document.getElementById(fieldId);
-            field.classList.toggle('editable');
-        }
-    </script>
+    <section id="contact">
+        <div class="section-content">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
