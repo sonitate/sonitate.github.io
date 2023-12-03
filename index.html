@@ -3,61 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Doe CV</title>
-</head>
-<body style="font-family: sans-serif; margin: 0; padding: 0;">
-  <header style="background-color: #f0f0f0; padding: 20px;">
-    <h1 style="font-size: 24px; font-weight: bold; margin: 0;">John Doe</h1>
+  <title>Sonita's CV</title>
+  <style>
+    /* General styles */
 
-    <nav style="text-align: right;">
-      <ul style="list-style: none; margin: 0; padding: 0;">
-        <li style="display: inline-block; margin-left: 20px;"><a href="#about" style="text-decoration: none; color: #000;">About Me</a></li>
-        <li style="display: inline-block; margin-left: 20px;"><a href="#skills" style="text-decoration: none; color: #000;">Skills</a></li>
-        <li style="display: inline-block; margin-left: 20px;"><a href="#experience" style="text-decoration: none; color: #000;">Experience</a></li>
-        <li style="display: inline-block; margin-left: 20px;"><a href="#education" style="text-decoration: none; color: #000;">Education</a></li>
-        <li style="display: inline-block; margin-left: 20px;"><a href="#contact" style="text-decoration: none; color: #000;">Contact</a></li>
-      </ul>
-    </nav>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Sonita</h1>
+      <p class="subtitle">Software Engineer</p>
+    </div>
   </header>
 
   <main>
-    <section id="about" style="padding: 20px;">
-      <h2 style="font-size: 18px; font-weight: bold; margin: 0;">About Me</h2>
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>A brief description of your background, goals, and experience.</p>
+      </section>
 
-      <p style="margin-bottom: 10px;">A brief description of your background, goals, and experience.</p>
-    </section>
-
-    <section id="skills" style="padding: 20px;">
-      <h2 style="font-size: 18px; font-weight: bold; margin: 0;">Skills</h2>
-
-      <ul style="list-style: disc; margin: 0; padding: 0;">
-        <li style="margin-bottom: 10px;">Skill 1</li>
-        <li style="margin-bottom: 10px;">Skill 2</li>
-        <li style="margin-bottom: 10px;">Skill 3</li>
-      </ul>
-    </section>
-
-    <section id="experience" style="padding: 20px;">
-      <h2 style="font-size: 18px; font-weight: bold; margin: 0;">Experience</h2>
-
-      <div class="job" style="margin-bottom: 20px;">
-        <h3 style="font-size: 16px; font-weight: bold; margin: 0;">Job Title 1</h3>
-
-        <p style="margin-bottom: 10px;">Company Name | Dates of Employment</p>
-
-        <ul style="margin: 0; padding: 0;">
-          <li style="margin-bottom: 10px;">Responsibility 1</li>
-          <li style="margin-bottom: 10px;">Responsibility 2</li>
-          <li style="margin-bottom: 10px;">Responsibility 3</li>
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>Skill 1</li>
+          <li>Skill 2</li>
+          <li>Skill 3</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="job" style="margin-bottom: 20px;">
-        <h3 style="font-size: 16px; font-weight: bold; margin: 0;">Job Title 2</h3>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+          <li>
+            <h3>Job Title 1</h3>
+            <p>Company Name | Dates of Employment</p>
+            <ul>
+              <li>Responsibility 1</li>
+              <li>Responsibility 2</li>
+              <li>Responsibility 3</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Job Title 2</h3>
+            <p>Company Name | Dates of Employment</p>
+            <ul>
+              <li>Responsibility 1</li>
+              <li>Responsibility 2</li>
+              <li>Responsibility 3</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
 
-        <p style="margin-bottom: 10px;">Company Name | Dates of Employment</p>
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <h3>Degree Name</h3>
+            <p>Institution Name | Dates of Attendance</p>
+          </li>
+          <li>
+            <h3>Degree Name</h3>
+            <p>Institution Name | Dates of Attendance</p>
+          </li>
+        </ul>
+      </section>
 
-        <ul style="margin: 0; padding: 0;">
-          <li style="margin-bottom: 10px;">Responsibility 1</li>
-          <li style="margin-bottom: 10px;">Responsibility 2</li>
-          <li style="margin-bottom:
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:sonita@example.com">sonita@example.com</a></li>
+          <li><a href="https://www.linkedin.com/in/sonita">LinkedIn</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const navItems = document.querySelectorAll('nav li');
+
+    for (const navItem of navItems) {
+      navItem.addEventListener('click', (event) => {
+        const targetSection = event.target.getAttribute('href');
+        const targetElement = document.querySelector(targetSection);
+
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    }
+  </script>
+</body>
+</html>
