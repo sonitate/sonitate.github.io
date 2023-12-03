@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonita - Curriculum Vitae</title>
+    <title>Your Name - Curriculum Vitae</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
         header {
@@ -18,10 +19,32 @@
             padding: 20px 0;
         }
 
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
         section {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2, h3 {
@@ -36,67 +59,86 @@
             margin-bottom: 10px;
         }
 
-        .education, .experience {
+        .skills {
             margin-bottom: 30px;
         }
 
-        ul {
+        .skills ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
-        ul li {
-            margin-bottom: 10px;
+        .skills li {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .editable {
+            display: none;
+        }
+
+        .edit-button {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Sonita TE</h1>
+        <h1>Your Name</h1>
         <p>Curriculum Vitae</p>
     </header>
 
-    <section>
+    <nav>
+        <a href="#contact">Contact</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
+    <section id="contact">
         <div class="contact-info">
-            <div>Email: sonita.te@cadt.edu.kh</div>
-            <div>Phone: guess</div>
-            <div>LinkedIn: </div>
-            <div>GitHub: github.com/sonitate</div>
-        </div>
-
-        <div class="education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>CADT</strong>
-                    <p>Degree in Computer Science</p>
-                    <p>Graduation Year: 20XX</p>
-                </li>
-            </ul>
-        </div>
-
-        <div class="experience">
-            <h2>Work Experience</h2>
-            <ul>
-                <li>
-                    <strong>Job Title</strong>
-                    <p>Company Name, Location</p>
-                    <p>Date Range: Month/Year - Month/Year</p>
-                    <p>Description of responsibilities and achievements in this role.</p>
-                </li>
-            </ul>
-        </div>
-
-        <div class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Programming Languages: Java, Python, HTML/CSS</li>
-                <li>Web Development: Front-end and Back-end</li>
-                <li>Database Management: SQL, MongoDB</li>
-                <!-- Add more skills as needed -->
-            </ul>
+            <div>Email: <span id="email" class="editable" contenteditable="true">your.email@example.com</span>
+                <span id="edit-email" class="edit-button" onclick="toggleEditable('email')">Edit</span>
+            </div>
+            <div>Phone: <span id="phone" class="editable" contenteditable="true">(123) 456-7890</span>
+                <span id="edit-phone" class="edit-button" onclick="toggleEditable('phone')">Edit</span>
+            </div>
+            <div>LinkedIn: <span id="linkedin" class="editable" contenteditable="true">linkedin.com/in/yourname</span>
+                <span id="edit-linkedin" class="edit-button" onclick="toggleEditable('linkedin')">Edit</span>
+            </div>
+            <div>GitHub: <span id="github" class="editable" contenteditable="true">github.com/yourusername</span>
+                <span id="edit-github" class="edit-button" onclick="toggleEditable('github')">Edit</span>
+            </div>
         </div>
     </section>
+
+    <section id="education">
+        <!-- Education details go here -->
+    </section>
+
+    <section id="experience">
+        <!-- Experience details go here -->
+    </section>
+
+    <section id="skills">
+        <!-- Skills details go here -->
+    </section>
+
+    <script>
+        function toggleEditable(fieldId) {
+            const field = document.getElementById(fieldId);
+            field.classList.toggle('editable');
+        }
+    </script>
+
 </body>
 </html>
-
