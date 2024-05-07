@@ -16,57 +16,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet" />
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
-    <!-- Animate Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         body {
             font-family: 'Roboto', sans-serif;
         }
 
-        .typewriter {
-            overflow: hidden;
-            /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange;
-            /* The typwriter cursor */
-            white-space: nowrap;
-            /* Keeps the content on a single line */
-            letter-spacing: .15em;
-            /* Adjust as needed */
-            animation-delay: 2s !important;
-            animation:
-                typing 3.5s steps(30, end) forwards,
-                blink-caret .5s step-end infinite;
-            width: min-content;
-            opacity: 0;
+        .card {
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        /* The typing effect */
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%;
-                opacity: 1;
-            }
-
-            1% {
-                opacity: 1;
-            }
-        }
-
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: orange
-            }
+        .card:hover {
+            box-shadow: 5px 6px 6px 2px #e9ecef;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -87,7 +49,7 @@
                 <!-- Left links -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item p-4">
-                        <a class="text-purple-400" aria-current="page" href="index.html">Home</a>
+                        <a class="text-dark" href="index.html">Home</a>
                     </li>
                     <li class="nav-item p-4">
                         <a class="text-dark" href="about.html">About Me</a>
@@ -96,7 +58,7 @@
                         <a class="text-dark" href="skills.html">Skills</a>
                     </li>
                     <li class="nav-item p-4">
-                        <a class="text-dark" href="contact.html">Contact</a>
+                        <a class="text-purple-400" aria-current="page" href="contact.html">Contact</a>
                     </li>
                 </ul>
                 <!-- Left links -->
@@ -108,32 +70,39 @@
     <div class="container h-75">
         <!-- Content -->
         <div class="section">
+            <div class="text-center fs-2 fw-bold">
+                Contacts
+            </div>
             <div class="row">
-                <div class="col-xl-6">
-                    <!-- Left Section -->
-                    <div>
-                        <div style="padding-top: 2rem">
-                            <p class="fs-2 pt-lg-4 animate__animated animate__fadeInRight">
-                                Hi there 👋
-                            </p>
-                            <p class="fs-1 fw-bold animate__animated animate__fadeInRight">
-                                I am Toon - aka ForestCrazy
-                            </p>
-                            <div style="width: max-content;">
-                                <div class="fs-3 fw-bold typewriter">
-                                    > <span>Backend Developer</span>
-                                </div>
-                            </div>
+                <div class="col-6 col-sm-4 py-3">
+                    <div class="card h-100">
+                        <div class="p-4 text-center">
+                            <i class="fa-solid fa-envelope"></i>
+                            <h5>Email</h5>
+                            <p>65309010005@htc.ac.th</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <!-- Right Section -->
-                    <img class="w-100 py-xl-5 text-right" src="./img/banner-image.png" alt="Programmer Coding" />
+                <div class="col-6 col-sm-4 py-3">
+                    <div class="card h-100">
+                        <div class="p-4 text-center">
+                            <i class="fa-brands fa-instagram"></i>
+                            <h5>Instagram</h5>
+                            <p>@forestcrazy_dev</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 py-3">
+                    <div class="card h-100">
+                        <div class="p-4 text-center">
+                            <i class="fa-brands fa-github"></i>
+                            <h5>Github</h5>
+                            <p>ForestCrazy</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
