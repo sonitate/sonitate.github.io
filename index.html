@@ -1,231 +1,74 @@
-<!--
-// v0 by Vercel.
-// https://v0.dev/t/acXIuEc6Liq
--->
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="flex flex-col min-h-[100dvh]">
-    <header class="px-4 lg:px-6 h-14 flex items-center">
-      <a class="flex items-center justify-center" href="#">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-6 w-6"
-        >
-          <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          <rect width="20" height="14" x="2" y="6" rx="2"></rect>
-        </svg>
-        <span class="sr-only">John Doe's Portfolio</span>
-      </a>
-      <nav class="ml-auto flex gap-4 sm:gap-6">
-        <a class="text-sm font-medium hover:underline underline-offset-4" href="#">
-          About
-        </a>
-        <a class="text-sm font-medium hover:underline underline-offset-4" href="#">
-          Skills
-        </a>
-        <a class="text-sm font-medium hover:underline underline-offset-4" href="#">
-          Projects
-        </a>
-        <a class="text-sm font-medium hover:underline underline-offset-4" href="#">
-          Contact
-        </a>
-      </nav>
-    </header>
-    <main class="flex-1">
-      <section id="hero" class="w-full py-12 md:py-24 lg:py-32">
-        <div class="container px-4 md:px-6">
-          <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <div class="flex flex-col justify-center space-y-4">
-              <div class="space-y-2">
-                <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">John Doe</h1>
-                <p class="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Full-Stack Developer | UI/UX Designer
-                </p>
-                <p class="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  I'm a passionate developer with a focus on creating beautiful and functional web applications.
-                </p>
-              </div>
-              <div class="flex flex-col gap-2 min-[400px]:flex-row">
-                <a
-                  class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                  href="#"
-                >
-                  View Projects
-                </a>
-                <a
-                  class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#"
-                >
-                  Contact Me
-                </a>
-              </div>
-            </div>
-            <img
-              src="/placeholder.svg"
-              alt="Hero"
-              class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
-              width="550"
-              height="550"
-            />
-          </div>
-        </div>
-      </section>
-      <section id="about" class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-        <div class="container px-4 md:px-6">
-          <div class="flex flex-col items-center justify-center space-y-4 text-center">
-            <div class="space-y-2">
-              <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
-              <p class="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                I'm a full-stack developer with a passion for creating beautiful and functional web applications. I
-                have experience working with a variety of technologies, including React, Node.js, and MongoDB. In my
-                free time, I enjoy exploring new technologies and working on personal projects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="skills" class="w-full py-12 md:py-24 lg:py-32">
-        <div class="container px-4 md:px-6">
-          <div class="flex flex-col items-center justify-center space-y-4 text-center">
-            <div class="space-y-2">
-              <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">My Skills</h2>
-              <p class="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                I have a diverse set of skills that I've developed over the years, including front-end development,
-                back-end development, and UI/UX design.
-              </p>
-            </div>
-            <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">Front-End Development</h3>
-                <p class="text-gray-500 dark:text-gray-400">Proficient in React, HTML, CSS, and JavaScript.</p>
-              </div>
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">Back-End Development</h3>
-                <p class="text-gray-500 dark:text-gray-400">Experienced in Node.js, Express, and MongoDB.</p>
-              </div>
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">UI/UX Design</h3>
-                <p class="text-gray-500 dark:text-gray-400">Skilled in Figma, Sketch, and Adobe Creative Suite.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="projects" class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-        <div class="container px-4 md:px-6">
-          <div class="flex flex-col items-center justify-center space-y-4 text-center">
-            <div class="space-y-2">
-              <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">My Projects</h2>
-              <p class="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Check out some of the projects I've worked on.
-              </p>
-            </div>
-            <div class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-                <div class="flex flex-col space-y-1.5 p-6">
-                  <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Project 1</h3>
-                  <p class="text-sm text-muted-foreground">A web application built with React and Node.js.</p>
-                </div>
-                <div class="flex aspect-video items-center justify-center p-6">
-                  <img
-                    src="/placeholder.svg"
-                    alt="Project 1"
-                    class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                    width="550"
-                    height="310"
-                  />
-                </div>
-                <div class="items-center p-6 flex justify-end">
-                  <a
-                    class="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                    href="#"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </div>
-              <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-                <div class="flex flex-col space-y-1.5 p-6">
-                  <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Project 2</h3>
-                  <p class="text-sm text-muted-foreground">A mobile app built with React Native and Firebase.</p>
-                </div>
-                <div class="flex aspect-video items-center justify-center p-6">
-                  <img
-                    src="/placeholder.svg"
-                    alt="Project 2"
-                    class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-                    width="550"
-                    height="310"
-                  />
-                </div>
-                <div class="items-center p-6 flex justify-end">
-                  <a
-                    class="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                    href="#"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="contact" class="w-full py-12 md:py-24 lg:py-32">
-        <div class="container px-4 md:px-6">
-          <div class="flex flex-col items-center justify-center space-y-4 text-center">
-            <div class="space-y-2">
-              <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
-              <p class="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                I'm always excited to connect with new people and discuss potential collaborations. Feel free to reach
-                out to me using the form below.
-              </p>
-            </div>
-            <div class="mx-auto w-full max-w-sm space-y-2">
-              <form class="flex flex-col space-y-4">
-                <input
-                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-lg flex-1"
-                  placeholder="Name"
-                  type="text"
-                />
-                <input
-                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-lg flex-1"
-                  placeholder="Email"
-                  type="email"
-                />
-                <textarea
-                  class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-lg flex-1"
-                  placeholder="Message"
-                  rows="5"
-                ></textarea>
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-                  type="submit"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-      <p class="text-xs text-gray-500 dark:text-gray-400">© 2024 John Doe. All rights reserved.</p>
-      <nav class="sm:ml-auto flex gap-4 sm:gap-6">
-        <a class="text-xs hover:underline underline-offset-4" href="#">
-          Privacy Policy
-        </a>
-        <a class="text-xs hover:underline underline-offset-4" href="#">
-          Terms of Service
-        </a>
-      </nav>
-    </footer>
-  </div>
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Responsive portfolio website - Bedimcode</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== HOME ====================-->
+         <section class="home section" id="home">
+            
+         </section>
+
+         <!--==================== ABOUT ====================-->
+         <section class="about section" id="about">
+            
+         </section>
+
+         <!--==================== SKILLS ====================-->
+         <section class="skills section">
+            
+         </section>
+
+         <!--==================== SERVICES ====================-->
+         <section class="services section" id="services">
+            
+         </section>
+
+         <!--==================== PROJECTS ====================-->
+         <section class="projects section" id="projects">
+            
+         </section>
+
+         <!--==================== CONTACT ====================-->
+         <section class="contact section" id="contact">
+            
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer">
+         
+      </footer>
+
+      <!--========== SCROLL UP ==========-->
+      
+
+      <!--=============== SCROLLREVEAL ===============-->
+      <script src=""></script>
+
+      <!--=============== EMAIL JS ===============-->
+      
+
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
+</html>
