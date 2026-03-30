@@ -1,71 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name - Teaching and Research Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Khmer+OS+Moul&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonita — Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-    <header>
-        <h1>Your Name</h1>
-        <p>Teaching and Research Portfolio</p>
-    </header>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Sonita</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section>
-        <h2>About Me</h2>
-        <p>Hello! I am [Your Name], a researcher and educator focused on [Your Research Interests]. I am passionate about [topics of interest] and currently working on [current project]. I teach [subjects you teach], and I'm excited to contribute to the development of [field/area of interest].</p>
-    </section>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-tag">PhD Researcher · Data Science & AI for Education · France</div>
+      <h1 class="hero-name">Sonita</h1>
+      <p class="hero-tagline">From Code to Classroom to Research.</p>
+      <a href="#about" class="hero-cta">Explore My Journey</a>
+    </div>
+    <div class="scroll-hint">↓ Scroll</div>
+  </section>
 
-    <section>
-        <h2>Research</h2>
-        <div class="content">
-            <div class="card">
-                <h3>Research Project 1</h3>
-                <p>A brief description of your research project here. You can include methods, findings, and impact.</p>
-            </div>
-            <div class="card">
-                <h3>Research Project 2</h3>
-                <p>Another research project you are working on. Briefly explain the scope and focus of this project.</p>
-            </div>
-            <div class="card">
-                <h3>Research Project 3</h3>
-                <p>Provide details on another significant research initiative you've led or participated in.</p>
-            </div>
+  <hr class="divider"/>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm Sonita, a PhD student in <strong>Data Science & AI for Education</strong>, passionate about using technology to transform how people learn.</p>
+        <p>My path began in Cambodia as a software developer and teaching assistant, which gave me a deep appreciation for both building systems and nurturing students.</p>
+        <p>Awarded a scholarship to pursue my Master's degree in France, I returned to Cambodia to take on leadership roles at CADT — first as Program Coordinator, then as Head of the Department of Computer Science. Once again recognised with a scholarship, I am now pursuing my PhD in France.</p>
+        <p>Today, my research sits at the intersection of artificial intelligence and education, asking: <em>how can data science make learning more equitable and effective?</em></p>
+      </div>
+      <div class="journey">
+        <div class="journey-item"><div class="dot"></div><div class="journey-text"><strong>Software Developer & Teaching Assistant</strong>Cambodia — where it all began</div></div>
+        <div class="journey-item"><div class="dot"></div><div class="journey-text"><strong>Master's Degree (Scholarship)</strong>France — broadening horizons abroad</div></div>
+        <div class="journey-item"><div class="dot"></div><div class="journey-text"><strong>Program Coordinator</strong>CADT, Cambodia — shaping curricula</div></div>
+        <div class="journey-item"><div class="dot"></div><div class="journey-text"><strong>Head of Department, Computer Science</strong>CADT, Cambodia — leading academia</div></div>
+        <div class="journey-item"><div class="dot"></div><div class="journey-text"><strong>PhD Student — Data Science & AI for Education (Scholarship)</strong>France — pushing the frontier</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-title">Technical</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Software Dev</span>
         </div>
-    </section>
-
-    <section>
-        <h2>Teaching</h2>
-        <div class="content">
-            <div class="card">
-                <h3>Course 1: [Course Name]</h3>
-                <p>Course description. Highlight the topics you cover and the methodologies used to engage students.</p>
-            </div>
-            <div class="card">
-                <h3>Course 2: [Course Name]</h3>
-                <p>Details of another course you teach. Share information about course goals and structure.</p>
-            </div>
-            <div class="card">
-                <h3>Course 3: [Course Name]</h3>
-                <p>Provide an overview of another course and any projects or assignments students engage in.</p>
-            </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-title">AI & Research</div>
+        <div class="skill-tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">NLP</span>
+          <span class="tag">EdTech AI</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Research Methods</span>
         </div>
-    </section>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎓</div>
+        <div class="skill-title">Academic & Leadership</div>
+        <div class="skill-tags">
+          <span class="tag">Curriculum Design</span>
+          <span class="tag">Teaching</span>
+          <span class="tag">Program Management</span>
+          <span class="tag">Mentoring</span>
+          <span class="tag">Programming Languages Instruction</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌏</div>
+        <div class="skill-title">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Khmer</span>
+          <span class="tag">English</span>
+          <span class="tag">French</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact-info">
-        <h2>Contact</h2>
-        <p>If you'd like to learn more about my research or teaching, feel free to reach out via email or connect with me on LinkedIn:</p>
-        <p>Email: [your email]</p>
-        <p>LinkedIn: [Your LinkedIn Profile URL]</p>
-    </section>
+  <hr class="divider"/>
 
-    <footer>
-        <p>&copy; [Your Name], [Year]. All Rights Reserved.</p>
-    </footer>
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-label">Portfolio & Work</div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-num">01</div>
+        <div class="work-title">PhD Research — AI for Education</div>
+        <div class="work-desc">Investigating how data science and artificial intelligence can improve learning outcomes, personalize education, and support underserved students in Southeast Asia.</div>
+        <span class="work-badge">Research</span>
+      </div>
+      <div class="work-card">
+        <div class="work-num">02</div>
+        <div class="work-title">CS Department Leadership at CADT</div>
+        <div class="work-desc">Led the Computer Science department, overseeing faculty, curriculum development, and strategic direction to align with Cambodia's digital transformation goals.</div>
+        <span class="work-badge">Leadership</span>
+      </div>
+      <div class="work-card">
+        <div class="work-num">03</div>
+        <div class="work-title">Master's Thesis — France</div>
+        <div class="work-desc">Completed an advanced research degree in France on a competitive scholarship, contributing to the field with original work bridging technology and real-world applications.</div>
+        <span class="work-badge">Academic</span>
+      </div>
+      <div class="work-card">
+        <div class="work-num">04</div>
+        <div class="work-title">Teaching Programming Languages</div>
+        <div class="work-desc">Taught programming languages to students, bridging theory and practice to equip the next generation of Cambodian developers with strong computational foundations.</div>
+        <span class="work-badge">Teaching</span>
+      </div>
+    </div>
+  </section>
 
+  <hr class="divider"/>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Sonita</div>
+      <div class="footer-sub">PhD Student · Data Science & AI for Education · France</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
