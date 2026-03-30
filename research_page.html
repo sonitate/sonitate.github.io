@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research — Sonita</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--black:#0a0a0a;--white:#fafafa;--gray:#666;--light:#e8e8e8;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Georgia',serif;background:var(--white);color:var(--black);line-height:1.7;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--light);padding:1.2rem 5%;}
+    .nav-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+    .nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--black);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--gray);font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover{color:var(--black);}
+    .nav-links a.active{color:var(--black);border-bottom:1.5px solid var(--black);}
+
+    /* HERO */
+    .page-hero{max-width:1000px;margin:0 auto;padding:10rem 5% 5rem;}
+    .back-link{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;transition:color .2s;}
+    .back-link:hover{color:var(--black);}
+    .page-tag{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem;border-left:2px solid var(--black);padding-left:1rem;}
+    .page-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.2;letter-spacing:-1px;max-width:750px;margin-bottom:1.5rem;}
+    .page-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;}
+    .meta-badge{font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--black);padding:.4rem 1rem;color:var(--black);}
+    .meta-badge.filled{background:var(--black);color:var(--white);}
+
+    hr.divider{max-width:1000px;margin:0 auto;border:none;border-top:1px solid var(--light);}
+
+    /* SECTIONS */
+    section{max-width:1000px;margin:0 auto;padding:4rem 5%;}
+    .section-label{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--light);}
+
+    /* OVERVIEW */
+    .overview-grid{display:grid;grid-template-columns:2fr 1fr;gap:4rem;align-items:start;}
+    .overview-text p{font-size:1.05rem;color:#333;margin-bottom:1.2rem;}
+    .info-card{border:1px solid var(--light);padding:1.8rem;}
+    .info-item{margin-bottom:1.5rem;}
+    .info-item:last-child{margin-bottom:0;}
+    .info-label{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:.4rem;}
+    .info-value{font-size:0.95rem;font-weight:700;color:var(--black);}
+    .info-value a{color:var(--black);text-decoration:underline;}
+
+    /* KEYWORDS */
+    .keywords{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;}
+    .kw{font-size:0.75rem;padding:.35rem .8rem;background:var(--black);color:var(--white);letter-spacing:.5px;}
+
+    /* METHODOLOGY */
+    .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+    .method-card{border:1px solid var(--light);padding:1.8rem;transition:border-color .3s;}
+    .method-card:hover{border-color:var(--black);}
+    .method-num{font-size:0.7rem;letter-spacing:2px;color:var(--gray);margin-bottom:.8rem;}
+    .method-title{font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem;}
+    .method-desc{font-size:0.85rem;color:var(--gray);}
+
+    /* PUBLICATION */
+    .pub-card{border:1px solid var(--light);padding:2.5rem;transition:border-color .3s;}
+    .pub-card:hover{border-color:var(--black);}
+    .pub-type{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;}
+    .pub-title{font-size:1.2rem;font-weight:700;line-height:1.4;margin-bottom:1rem;}
+    .pub-venue{font-size:0.9rem;color:var(--gray);font-style:italic;margin-bottom:1.5rem;}
+    .pub-status{display:inline-block;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:.4rem 1rem;background:var(--black);color:var(--white);}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--light);padding:3rem 5%;text-align:center;}
+    .footer-inner{max-width:1000px;margin:0 auto;}
+    .footer-name{font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;}
+    .footer-sub{font-size:0.8rem;color:var(--gray);letter-spacing:1px;}
+
+    @media(max-width:700px){
+      .overview-grid{grid-template-columns:1fr;}
+      .nav-links{gap:1rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Sonita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
+  <div class="page-tag">PhD Research · LAK26 · Norway</div>
+  <h1 class="page-title">Beyond the Grade: A Data-Driven Framework Enhanced by AI for Analyzing Student Competency Profiles</h1>
+  <div class="page-meta">
+    <span class="meta-badge filled">Accepted</span>
+    <span class="meta-badge">LAK26 Conference</span>
+    <span class="meta-badge">Oslo, Norway</span>
+    <span class="meta-badge">2026</span>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-label">Overview</div>
+  <div class="overview-grid">
+    <div class="overview-text">
+      <p>Traditional grading systems often fail to capture the full picture of a student's abilities. This research proposes a <strong>data-driven framework</strong> that moves beyond the grade — leveraging Artificial Intelligence and Learning Analytics to construct rich, multidimensional student competency profiles.</p>
+      <p>By combining AI techniques with learning analytics, the framework is designed to identify patterns in student performance, uncover hidden competencies, and provide educators with actionable insights to personalise learning pathways.</p>
+      <p>This work contributes to the growing field of <em>AI for Education</em>, with a particular focus on equity, interpretability, and practical deployment in real academic environments.</p>
+      <div class="keywords">
+        <span class="kw">Learning Analytics</span>
+        <span class="kw">AI in Education</span>
+        <span class="kw">Competency Profiling</span>
+        <span class="kw">Student Modelling</span>
+        <span class="kw">Data-Driven Learning</span>
+        <span class="kw">EdTech</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-item">
+        <div class="info-label">Researcher</div>
+        <div class="info-value">Sonita</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Field</div>
+        <div class="info-value">Data Science & AI for Education</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Venue</div>
+        <div class="info-value">LAK26 — Learning Analytics & Knowledge Conference</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Location</div>
+        <div class="info-value">Norway, 2026</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Status</div>
+        <div class="info-value">✅ Accepted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="section-label">Methodology</div>
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-num">01</div>
+      <div class="method-title">Data Collection</div>
+      <div class="method-desc">Gathering multi-source academic data including assessments, participation, and behavioural signals.</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">02</div>
+      <div class="method-title">Learning Analytics</div>
+      <div class="method-desc">Applying LA techniques to extract meaningful patterns from raw student data across time.</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">03</div>
+      <div class="method-title">AI Modelling</div>
+      <div class="method-desc">Using machine learning models to predict competency levels and cluster student profiles.</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">04</div>
+      <div class="method-title">Profile Framework</div>
+      <div class="method-desc">Building interpretable, multidimensional competency profiles that go beyond traditional grades.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PUBLICATION -->
+<section id="publication">
+  <div class="section-label">Publication</div>
+  <div class="pub-card">
+    <div class="pub-type">Conference Paper · Accepted</div>
+    <div class="pub-title">Beyond the Grade: A Data-Driven Framework Enhanced by AI for Analyzing Student Competency Profiles</div>
+    <div class="pub-venue">LAK26 — 16th International Conference on Learning Analytics & Knowledge · Norway, 2026</div>
+    <span class="pub-status">✅ Accepted at LAK26</span>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Sonita</div>
+    <div class="footer-sub">PhD Student · Data Science & AI for Education · France</div>
+  </div>
+</footer>
+
+</body>
+</html>
