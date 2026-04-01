@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LAK26 DC Poster – Sonita TE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #0d1b2a;
+  --cream:  #f7f2e8;
+  --rust:   #c0392b;
+  --gold:   #c9952a;
+  --sage:   #2d6a4f;
+  --steel:  #4a6fa5;
+  --mist:   #e8e2d6;
+  --smoke:  #8a8278;
+  --pale:   #f0ebe0;
+}
+
+body {
+  background: #2a2520;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  font-family: 'Instrument Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── POSTER SHELL: A1 landscape ratio ── */
+.poster {
+  width: 1380px;
+  background: var(--cream);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── TOP STRIPE ── */
+.top-stripe {
+  height: 6px;
+  background: linear-gradient(90deg, var(--rust) 0%, var(--rust) 33%, var(--gold) 33%, var(--gold) 66%, var(--navy) 66%);
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--navy);
+  padding: 26px 44px 22px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  align-items: center;
+}
+
+.header-left {}
+
+.conf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+.conf-text {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 31px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.main-title em {
+  font-style: italic;
+  color: #e8a87c;
+}
+
+.main-subtitle {
+  font-size: 12px;
+  font-weight: 300;
+  color: #8a9bb0;
+  line-height: 1.55;
+  max-width: 700px;
+}
+
+.header-right {
+  border-left: 1px solid #2a3f55;
+  padding-left: 28px;
+}
+
+.author-label {
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0px;
+}
+.affiliation {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 14px;
+}
+
+.keyword-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kw {
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #7a8fa5;
+  padding: 3px 0;
+  border-bottom: 1px solid #1e2e3d;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.kw::before {
+  content: '';
+  display: inline-block;
+  width: 12px; height: 1px;
+  background: var(--rust);
+  flex-shrink: 0;
+}
+
+/* ── BODY GRID: 3 equal cols ── */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex: 1;
+}
+
+.col {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-right: 1px solid var(--mist);
+  position: relative;
+}
+
+.col:last-child { border-right: none; }
+
+/* Column color accent bars */
+.col:nth-child(1)::before { background: var(--rust); }
+.col:nth-child(2)::before { background: var(--steel); }
+.col:nth-child(3)::before { background: var(--sage); }
+
+.col::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 28px;
+  width: 24px; height: 2px;
+}
+
+/* ── SECTION ANATOMY ── */
+.s-tag {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.col:nth-child(1) .s-tag { color: var(--rust); }
+.col:nth-child(2) .s-tag { color: var(--steel); }
+.col:nth-child(3) .s-tag { color: var(--sage); }
+
+.s-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.s-body {
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #3a3530;
+}
+
+.s-body + .s-body { margin-top: 5px; }
+strong { font-weight: 600; color: var(--navy); }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--mist);
+}
+
+/* ── CALLOUT ── */
+.callout {
+  background: var(--pale);
+  border-left: 2.5px solid var(--rust);
+  padding: 10px 12px;
+  border-radius: 0 3px 3px 0;
+}
+.callout p {
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--navy);
+  font-style: italic;
+}
+
+/* ── RQ LIST ── */
+.rq-list { display: flex; flex-direction: column; gap: 9px; }
+
+.rq-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 10px;
+  background: var(--pale);
+  border-radius: 4px;
+  border: 1px solid var(--mist);
+}
+
+.rq-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--mist);
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: -2px;
+}
+
+.rq-t {
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #3a3530;
+}
+
+/* ── STATUS CHIPS ── */
+.chips { display: flex; flex-direction: column; gap: 5px; }
+
+.chip {
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chip-done { background: #e8f5f0; color: var(--sage); border: 1px solid #a8d5c0; }
+.chip-next { background: #fef6e4; color: #7a5a10; border: 1px solid #e0c068; }
+
+/* ── DARK PANEL ── */
+.dark-panel {
+  background: var(--navy);
+  border-radius: 5px;
+  padding: 14px 15px;
+}
+.dark-panel .s-tag { color: var(--gold) !important; }
+.dark-panel .s-head { color: var(--cream); font-size: 13px; }
+.dark-panel .s-body { color: #8a9bb0; }
+.dark-panel strong { color: var(--cream); }
+
+/* ── DIAGRAM CARD ── */
+.diagram-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+  padding: 14px 10px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.diagram-cap {
+  font-size: 8.5px;
+  color: var(--smoke);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── LAYER STACK ── */
+.layers { display: flex; flex-direction: column; gap: 5px; }
+
+.layer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 11px;
+  border-radius: 4px;
+}
+
+.l-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.l-name { font-size: 10px; font-weight: 600; margin-bottom: 2px; }
+.l-desc { font-size: 9.5px; font-weight: 300; line-height: 1.55; color: #4a4540; }
+
+.layer-1 { background: #f2ede4; }
+.layer-1 .l-num { color: #c8bfb0; }
+.layer-1 .l-name { color: var(--navy); }
+
+.layer-2 { background: #eaebf8; }
+.layer-2 .l-num { color: var(--steel); }
+.layer-2 .l-name { color: var(--steel); }
+
+.layer-3 { background: #e5f2ec; }
+.layer-3 .l-num { color: var(--sage); }
+.layer-3 .l-name { color: var(--sage); }
+
+/* ── CONTRIB GRID ── */
+.c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+.c-card {
+  padding: 9px 10px;
+  border: 1px solid var(--mist);
+  border-radius: 4px;
+  background: white;
+}
+
+.c-title {
+  font-size: 8.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage);
+  margin-bottom: 4px;
+}
+
+.c-card p {
+  font-size: 9.5px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--smoke);
+}
+
+/* ── OPEN QUESTIONS ── */
+.q-list { display: flex; flex-direction: column; gap: 6px; }
+
+.q-row {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  padding: 9px 11px;
+  background: #f0ebe0;
+  border-radius: 4px;
+}
+
+.q-bullet {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.q-row p {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 1.58;
+  color: var(--navy);
+}
+
+/* ── RESILIENCE PANEL ── */
+.resilience-panel {
+  background: var(--pale);
+  border: 1px solid var(--mist);
+  border-top: 2px solid var(--sage);
+  border-radius: 0 0 4px 4px;
+  padding: 12px 13px;
+}
+
+.resilience-panel p {
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #3a3530;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--navy);
+  padding: 10px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f-left { font-size: 9px; color: #5a7090; line-height: 1.6; }
+.f-left strong { color: #8a9bb0; font-weight: 500; }
+.f-mid { font-size: 8.5px; color: #3a5068; text-align: center; font-style: italic; line-height: 1.6; }
+.f-right { font-size: 8.5px; color: #5a7090; text-align: right; line-height: 1.6; }
+
+svg text { font-family: 'Instrument Sans', sans-serif; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="top-stripe"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="conf-badge">
+        <div class="badge-dot"></div>
+        <span class="conf-text">LAK26 · Doctoral Consortium · Bergen, Norway · April–May 2026</span>
+      </div>
+      <h1 class="main-title">Beyond the Grade: A Data-Driven Framework<br>Enhanced by <em>AI</em> for Analyzing Student Competency Profiles</h1>
+      <p class="main-subtitle">Moving from summative grades to dynamic, evidence-based portraits of student development anchored in France's national certification framework (RNCP)</p>
+    </div>
+    <div class="header-right">
+      <div class="author-label">PhD Candidate</div>
+      <div class="author-name">Sonita TE</div>
+      <div class="affiliation">Le Mans University</div>
+      <div class="keyword-list">
+        <span class="kw">Learning Analytics</span>
+        <span class="kw">AI in Education</span>
+        <span class="kw">Competency Profiling</span>
+        <span class="kw">Human-in-the-Loop</span>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- COL 1: Problem + RQs + Status -->
+    <div class="col">
+
+      <div>
+        <div class="s-tag">The Problem</div>
+        <div class="s-head">The strategic paradox of higher education</div>
+        <p class="s-body">Higher education faces competing pressures: training for <strong>immediate technical needs</strong> vs. developing deep adaptive thinkers for <strong>long-term professional resilience</strong>. Traditional grading collapses this tension into a single number.</p>
+      </div>
+
+      <div class="callout">
+        <p>Reducing dynamic learning experiences — internships, labs, collaborative projects — to a final grade <strong>obscures how transversal competencies develop</strong>: critical thinking, problem-solving persistence, creativity.</p>
+      </div>
+
+      <hr class="divider">
+
+      <div>
+        <div class="s-tag">Research Questions</div>
+        <div class="rq-list">
+          <div class="rq-row">
+            <span class="rq-n">1</span>
+            <p class="rq-t">How can an <strong>AI+LA framework</strong> transform raw educational data into objective evidence of transversal competencies — moving beyond output-based grading?</p>
+          </div>
+          <div class="rq-row">
+            <span class="rq-n">2</span>
+            <p class="rq-t">How can a <strong>Human-in-the-Loop</strong> approach involving academic and industry stakeholders calibrate the profile to resolve the tension between professionalization and formative mission?</p>
+          </div>
+          <div class="rq-row">
+            <span class="rq-n">3</span>
+            <p class="rq-t">To what extent does a <strong>dynamic competency profile</strong> improve student self-awareness and professional resilience compared to traditional numerical indicators?</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div>
+        <div class="s-tag">Current Status</div>
+        <div class="chips">
+          <div class="chip chip-done">✓ 3-layer architecture conceptualized</div>
+          <div class="chip chip-done">✓ Literature review complete</div>
+          <div class="chip chip-next">→ Pilot data collection (French context)</div>
+          <div class="chip chip-next">→ AI+NLP pipeline development</div>
+        </div>
+      </div>
+
+      
+
+    </div>
+
+    <!-- COL 2: Diagram + 3-layer -->
+    <div class="col">
+
+      <div>
+        <div class="s-tag">The Framework · Human-in-the-Loop Cycle</div>
+        <div class="diagram-card">
+          <svg width="100%" viewBox="0 0 400 318">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+
+            <!-- Traces -->
+            <rect x="125" y="8" width="150" height="42" rx="5" fill="#f2ede4" stroke="#c8bfb0" stroke-width="0.6"/>
+            <text x="200" y="24" text-anchor="middle" font-size="10.5" font-weight="500" fill="#0d1b2a">Digital traces</text>
+            <text x="200" y="39" text-anchor="middle" font-size="8" fill="#8a8278">Moodle · GitHub · assessments · artifacts</text>
+
+            <line x1="200" y1="50" x2="200" y2="78" stroke="#0d1b2a" stroke-width="1" marker-end="url(#arr)"/>
+
+            <!-- AI -->
+            <rect x="110" y="82" width="180" height="42" rx="5" fill="#eaebf8" stroke="#8a93c8" stroke-width="0.6"/>
+            <text x="200" y="98" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4a6fa5">AI + NLP</text>
+            <text x="200" y="113" text-anchor="middle" font-size="8" fill="#4a6fa5">maps traces → éléments de preuve</text>
+
+            <line x1="200" y1="124" x2="200" y2="152" stroke="#4a6fa5" stroke-width="1" marker-end="url(#arr)"/>
+
+            <!-- Profile -->
+            <rect x="118" y="156" width="164" height="50" rx="7" fill="#fdecea" stroke="#e08070" stroke-width="1"/>
+            <text x="200" y="174" text-anchor="middle" font-size="10.5" font-weight="600" fill="#c0392b">Student competency</text>
+            <text x="200" y="189" text-anchor="middle" font-size="10.5" font-weight="600" fill="#c0392b">profile</text>
+            <text x="200" y="201" text-anchor="middle" font-size="7.5" fill="#c0392b">dynamic · evidence-based · RNCP-anchored</text>
+
+            <!-- Educator -->
+            <rect x="8" y="164" width="88" height="36" rx="4" fill="#e5f2ec" stroke="#7dc4a0" stroke-width="0.6"/>
+            <text x="52" y="179" text-anchor="middle" font-size="9.5" font-weight="500" fill="#2d6a4f">Educator</text>
+            <text x="52" y="192" text-anchor="middle" font-size="7.5" fill="#2d6a4f">qualitative context</text>
+
+            <!-- Industry -->
+            <rect x="304" y="164" width="88" height="36" rx="4" fill="#e5f2ec" stroke="#7dc4a0" stroke-width="0.6"/>
+            <text x="348" y="179" text-anchor="middle" font-size="9.5" font-weight="500" fill="#2d6a4f">Industry</text>
+            <text x="348" y="192" text-anchor="middle" font-size="7.5" fill="#2d6a4f">market relevance</text>
+
+            <line x1="96" y1="182" x2="116" y2="182" stroke="#2d6a4f" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="282" y1="182" x2="302" y2="182" stroke="#2d6a4f" stroke-width="1" marker-end="url(#arr)"/>
+
+            <!-- Student -->
+            <rect x="125" y="234" width="150" height="36" rx="4" fill="#e5f2ec" stroke="#7dc4a0" stroke-width="0.6"/>
+            <text x="200" y="249" text-anchor="middle" font-size="9.5" font-weight="500" fill="#2d6a4f">Student</text>
+            <text x="200" y="263" text-anchor="middle" font-size="7.5" fill="#2d6a4f">self-reflection · self-regulated learning</text>
+
+            <line x1="200" y1="206" x2="200" y2="232" stroke="#2d6a4f" stroke-width="1" marker-end="url(#arr)"/>
+
+            <!-- Educator → AI loop -->
+            <path d="M52 164 L52 103 L108 103" fill="none" stroke="#2d6a4f" stroke-width="0.8" stroke-dasharray="4 2.5" marker-end="url(#arr)"/>
+            <text x="6" y="135" font-size="7.5" fill="#2d6a4f">refines</text>
+            <text x="6" y="146" font-size="7.5" fill="#2d6a4f">mapping</text>
+
+            <!-- Industry → AI loop -->
+            <path d="M348 164 L348 103 L292 103" fill="none" stroke="#2d6a4f" stroke-width="0.8" stroke-dasharray="4 2.5" marker-end="url(#arr)"/>
+            <text x="322" y="135" font-size="7.5" fill="#2d6a4f">updates</text>
+            <text x="322" y="146" font-size="7.5" fill="#2d6a4f">criteria</text>
+
+            <!-- Student → Traces outer loop -->
+            <path d="M133 252 L22 252 L22 29 L123 29" fill="none" stroke="#8a8278" stroke-width="0.7" stroke-dasharray="3 2.5" marker-end="url(#arr)"/>
+            <text x="2" y="290" font-size="7.5" fill="#8a8278">new</text>
+            <text x="2" y="300" font-size="7.5" fill="#8a8278">traces</text>
+
+            <!-- Legend -->
+            <line x1="110" y1="307" x2="128" y2="307" stroke="#4a6fa5" stroke-width="1.2" marker-end="url(#arr)"/>
+            <text x="132" y="310" font-size="7.5" fill="#8a8278">AI flow</text>
+            <line x1="185" y1="307" x2="203" y2="307" stroke="#2d6a4f" stroke-width="0.8" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+            <text x="207" y="310" font-size="7.5" fill="#8a8278">human loop</text>
+            <line x1="277" y1="307" x2="295" y2="307" stroke="#8a8278" stroke-width="0.8" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+            <text x="299" y="310" font-size="7.5" fill="#8a8278">new cycle</text>
+          </svg>
+          <p class="diagram-cap">Fig. 1 — A continuous HITL loop, not a linear pipeline. Humans remain validators; AI provides synthesis.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-tag">Methodology · 3-Layer Architecture</div>
+        <div class="layers">
+          <div class="layer layer-1">
+            <div class="l-num">1</div>
+            <div>
+              <div class="l-name">Trace layer — evidence collection</div>
+              <div class="l-desc">Fine-grained digital traces from LMS (Moodle) and version control (GitHub): debugging patterns, time-on-task, collaboration frequency, artifacts.</div>
+            </div>
+          </div>
+          <div class="layer layer-2">
+            <div class="l-num">2</div>
+            <div>
+              <div class="l-name">Context layer — AI pedagogical mapping</div>
+              <div class="l-desc">NLP and pattern recognition map traces to RNCP blocs de compétences. Raw behaviour becomes the "language of education."</div>
+            </div>
+          </div>
+          <div class="layer layer-3">
+            <div class="l-num">3</div>
+            <div>
+              <div class="l-name">Competency layer — stakeholder calibration</div>
+              <div class="l-desc">HITL validation by educators, industry mentors and students. Dynamic profile verified by data, validated by humans. Anchored to RNCP critères d'évaluation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dark-panel">
+        <div class="s-tag">RNCP 37394 · The French Context</div>
+        <div class="s-head">A state-validated competency taxonomy</div>
+        <p class="s-body">France's certification framework defines both <strong>blocs de compétences</strong> and <strong>éléments de preuve</strong> needed to validate them. The competency taxonomy is <strong>externally validated by the state</strong> — not researcher-defined. The AI finds proof that already meets this bar.</p>
+      </div>
+
+    </div>
+
+    <!-- COL 3: Contributions + Resilience + Open Qs -->
+    <div class="col">
+
+      <div>
+        <div class="s-tag">Expected Contributions</div>
+        <div class="c-grid">
+          <div class="c-card">
+            <div class="c-title">Methodological</div>
+            <p>Replicable 3-layer architecture separating raw evidence from pedagogical intent and stakeholder calibration</p>
+          </div>
+          <div class="c-card">
+            <div class="c-title">Technical</div>
+            <p>AI+NLP pipeline surfacing high-resolution proof of competencies invisible to summative metrics</p>
+          </div>
+          <div class="c-card">
+            <div class="c-title">Pedagogical</div>
+            <p>Profile as self-regulated learning instrument — assessment as self-awareness, not surveillance</p>
+          </div>
+          <div class="c-card">
+            <div class="c-title">Strategic</div>
+            <p>HITL industry input keeps profile market-relevant while preserving the long-term formative mission</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div>
+        <div class="s-tag">RNCP as Resilience Mechanism</div>
+        <div class="s-head">Not just anchored — adaptably relevant</div>
+        <div class="resilience-panel">
+          <p>The key design principle: <strong>separate the evidence layer from the mapping layer.</strong> Raw traces are permanent. RNCP labels are one interpretation of them — re-mappable as definitions evolve. When industry signals competencies beyond current RNCP scope, the framework captures them as <strong>emerging signals</strong>, potentially informing future national certification revision.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div>
+        <div class="s-tag">Open Questions · Seeking Your Feedback</div>
+        <div class="q-list">
+          <div class="q-row">
+            <div class="q-bullet"></div>
+            <p>How should the framework handle <strong>RNCP revision</strong> — when blocs are redefined, how do we preserve continuity of evidence already collected?</p>
+          </div>
+          <div class="q-row">
+            <div class="q-bullet"></div>
+            <p>Where is the boundary between <strong>profiling and surveillance</strong>? What governance is needed for students to genuinely trust the system?</p>
+          </div>
+          <div class="q-row">
+            <div class="q-bullet"></div>
+            <p>Can industry input that consistently <strong>exceeds RNCP scope</strong> serve as empirical evidence for future certification revision at national level?</p>
+          </div>
+          <div class="q-row">
+            <div class="q-bullet"></div>
+            <p>How do we validate the <strong>AI's mapping decisions</strong>? What does ground truth look like when competency itself is contested?</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="f-left"><strong>Sonita TE</strong> · PhD Candidate · LAK26 Doctoral Consortium · Bergen 2026</div>
+    <div class="f-mid">Kuh et al. (2006) · Siemens & Baker (2012) · Namoun & Alshanqiti (2021) · Viberg et al. (2025) · RNCP 37394</div>
+    <div class="f-right">Learning Analytics · AI in Education · HITL · Transversal Competencies</div>
+  </div>
+
+</div>
+</body>
+</html>
