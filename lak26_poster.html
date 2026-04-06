@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAK26 DC Poster – Sonita TE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #ffffff;
+    --bg-soft:  #f7f8fa;
+    --bg-card:  #ffffff;
+    --border:   #e2e5ec;
+    --border-lt:#edf0f5;
+    --navy:     #141e33;
+    --text:     #2a3040;
+    --text-mid: #636b7e;
+    --text-lt:  #9099ae;
+    --coral:    #c94420;
+    --coral-bg: #fef3ef;
+    --coral-bd: #f0b8a8;
+    --teal:     #167a6a;
+    --teal-bg:  #eaf5f2;
+    --teal-bd:  #90c4b5;
+    --gold:     #8a6e20;
+    --gold-bg:  #fbf6e8;
+    --gold-bd:  #d8c278;
+    --purple:   #5e4590;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body {
+    background: #dfe3ea;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 40px;
+  }
+  .poster {
+    width: 794px;
+    min-height: 1123px;
+    background: var(--bg);
+    padding: 26px 28px 22px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    font-size: 8px;
+    line-height: 1.55;
+    box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 10px 40px rgba(0,0,0,.1);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid; grid-template-columns: 1fr auto; gap: 20px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px;
+  }
+  .conf-tag { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .dot { width:6px; height:6px; background:var(--coral); border-radius:50%; flex-shrink:0; }
+  .conf-label { font-family:'DM Mono',monospace; font-size:5.8px; letter-spacing:.16em; color:var(--text-lt); text-transform:uppercase; }
+  .main-title { font-family:'Playfair Display',serif; font-size:21px; font-weight:700; line-height:1.13; color:var(--navy); margin-bottom:5px; }
+  .main-title em { font-style:italic; color:var(--coral); }
+  .subtitle { font-size:7.8px; color:var(--text-mid); line-height:1.55; max-width:390px; }
+  .header-right { text-align:right; min-width:120px; }
+  .phd-label { font-family:'DM Mono',monospace; font-size:5.8px; letter-spacing:.16em; color:var(--coral); text-transform:uppercase; margin-bottom:3px; }
+  .author-name { font-family:'Playfair Display',serif; font-size:14px; color:var(--navy); line-height:1.2; }
+  .university { font-size:7.8px; color:var(--text-mid); margin-bottom:9px; }
+  .tags { display:grid; grid-template-columns:1fr 1fr; gap:3px 6px; justify-items:end; }
+  .tag {
+    justify-self:end; display:inline-flex; align-items:center;
+    font-size:6.2px; color:var(--text-mid); background:var(--bg-soft);
+    padding:2px 8px 2px 6px; border-radius:10px; border:0.5px solid var(--border-lt); white-space:nowrap;
+  }
+  .tag-dot { width:4px; height:4px; background:var(--coral); border-radius:50%; margin-right:5px; flex-shrink:0; }
+
+  /* ── LAYOUT ── */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .full-w  { margin-bottom:10px; }
+
+  /* ── CARDS ── */
+  .card {
+    background:var(--bg-card); border:1px solid var(--border-lt);
+    border-radius:6px; padding:11px 12px; box-shadow:0 1px 3px rgba(0,0,0,.03);
+  }
+  .card-coral { border-left:3px solid var(--coral); background:var(--coral-bg); }
+  .card-teal  { border-left:3px solid var(--teal);  background:var(--teal-bg); }
+
+  .sec-label {
+    font-family:'DM Mono',monospace; font-size:5.8px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--coral); margin-bottom:5px; font-weight:500;
+  }
+  .sec-label.teal { color:var(--teal); }
+  .card-title { font-family:'Playfair Display',serif; font-size:11px; color:var(--navy); line-height:1.25; margin-bottom:5px; }
+  p { font-size:7.8px; color:var(--text); margin-bottom:4px; line-height:1.6; }
+  p:last-child { margin-bottom:0; }
+
+  /* ── RQ ── */
+  .rq-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+  .rq-item {
+    display:flex; gap:10px; padding:8px 0;
+    border-bottom:0.5px solid var(--border-lt); align-items:flex-start;
+  }
+  .rq-item:last-child { border-bottom:none; padding-bottom:0; }
+  .rq-num {
+    font-family:'DM Mono',monospace; font-size:6.5px; color:#fff;
+    background:var(--coral); border-radius:10px;
+    width:28px; height:16px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:2px; font-weight:500; letter-spacing:.04em;
+  }
+  .rq-text { font-size:8.5px; color:var(--text); line-height:1.6; }
+  .rq-text strong { color:var(--navy); font-weight:600; }
+
+  /* ── DIAGRAM ── */
+  .diagram-wrap { background:var(--bg-soft); border:1px solid var(--border); border-radius:6px; padding:12px; }
+  .diagram-cap { font-size:7px; color:var(--text-lt); font-style:italic; text-align:center; margin-top:6px; }
+
+  /* ── LAYERS ── */
+  .layers { display:flex; flex-direction:column; gap:5px; margin-top:5px; }
+  .layer { display:grid; grid-template-columns:20px 1fr; gap:8px; align-items:start; }
+  .lnum {
+    width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'DM Mono',monospace; font-size:7.5px; flex-shrink:0; font-weight:500;
+  }
+  .l1 { background:var(--teal-bg); color:var(--teal); border:1px solid var(--teal-bd); }
+  .l2 { background:var(--coral-bg); color:var(--coral); border:1px solid var(--coral-bd); }
+  .l3 { background:var(--gold-bg); color:var(--gold); border:1px solid var(--gold-bd); }
+  .l-title { font-size:8px; font-weight:600; color:var(--navy); margin-bottom:1px; }
+  .l-sub   { font-size:6.2px; color:var(--text-lt); margin-bottom:2px; font-style:italic; }
+  .l-body  { font-size:7.5px; color:var(--text); line-height:1.5; }
+  .l-out {
+    display:inline-flex; align-items:center; gap:3px;
+    background:var(--bg-soft); border-radius:10px;
+    padding:1.5px 8px; font-size:7px; color:var(--text); margin-top:4px;
+    border:0.5px solid var(--border-lt); font-weight:500;
+  }
+  .l-out::before { content:'→'; color:var(--coral); }
+  .flow-arr { text-align:center; color:var(--text-lt); font-size:8px; margin-left:28px; }
+
+  /* ── CONTRIBUTIONS ── */
+  .contrib-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:5px; }
+  .contrib-item { background:var(--bg-soft); border-radius:4px; padding:6px 7px; border:0.5px solid var(--border-lt); }
+  .c-type { font-family:'DM Mono',monospace; font-size:5.5px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:2px; font-weight:500; }
+  .c-type.me { color:var(--teal); } .c-type.te { color:var(--coral); }
+  .c-type.pe { color:var(--gold); } .c-type.st { color:var(--purple); }
+  .c-text { font-size:7.2px; color:var(--text); line-height:1.45; }
+
+  /* ── STATUS ── */
+  .status-grid { display:flex; flex-direction:column; gap:3px; margin-top:5px; }
+  .s-item { display:flex; align-items:center; gap:5px; padding:3px 7px; border-radius:10px; font-size:7.2px; font-weight:500; }
+  .s-done { background:var(--teal-bg); border:0.5px solid var(--teal-bd); color:var(--teal); }
+  .s-prog { background:var(--coral-bg); border:0.5px solid var(--coral-bd); color:var(--coral); }
+
+  hr.div { border:none; border-top:0.5px solid var(--border-lt); margin:8px 0; }
+
+  /* ── RNCP ── */
+  .rncp-box {
+    background:linear-gradient(135deg,var(--gold-bg) 0%,#fff 50%,var(--coral-bg) 100%);
+    border:0.5px solid var(--gold-bd); border-radius:6px; padding:11px 12px; margin-bottom:10px;
+    box-shadow:0 1px 3px rgba(0,0,0,.03);
+  }
+  .rncp-head { display:flex; align-items:center; gap:10px; margin-bottom:5px; }
+  .rncp-badge {
+    font-family:'DM Mono',monospace; font-size:5.8px; color:var(--gold);
+    background:#fff; border:0.5px solid var(--gold-bd);
+    padding:2px 6px; border-radius:10px; letter-spacing:.1em; flex-shrink:0; font-weight:500;
+  }
+  .rncp-title { font-family:'Playfair Display',serif; font-size:11px; color:var(--navy); }
+  .rncp-body { font-size:7.8px; color:var(--text); line-height:1.6; }
+  .rncp-body strong { color:var(--navy); }
+  .principle {
+    background:#fff; border-left:2px solid var(--gold);
+    padding:6px 9px; margin-top:6px; border-radius:0 4px 4px 0;
+    font-size:7.5px; color:var(--text); line-height:1.55;
+  }
+  .principle strong { color:var(--navy); }
+
+  /* ── DC ── */
+  .dc-box {
+    background:var(--bg-card); border:0.5px solid var(--coral-bd);
+    border-radius:6px; padding:11px 12px; margin-bottom:10px;
+    box-shadow:0 1px 3px rgba(0,0,0,.03);
+  }
+  .dc-label { font-family:'DM Mono',monospace; font-size:5.8px; letter-spacing:.18em; text-transform:uppercase; color:var(--coral); margin-bottom:2px; font-weight:500; }
+  .dc-title { font-family:'Playfair Display',serif; font-size:11px; color:var(--navy); margin-bottom:8px; }
+  .dc-qs { display:flex; flex-direction:column; gap:7px; }
+  .dc-q { display:grid; grid-template-columns:22px 1fr; gap:7px; align-items:start; }
+  .dc-icon {
+    width:20px; height:20px; background:var(--coral-bg); border:0.5px solid var(--coral-bd);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'DM Mono',monospace; font-size:6.5px; color:var(--coral); flex-shrink:0; font-weight:500;
+  }
+  .dc-qlabel { font-family:'DM Mono',monospace; font-size:6px; color:var(--coral); letter-spacing:.1em; text-transform:uppercase; margin-bottom:2px; font-weight:500; }
+  .dc-qtext  { font-size:7.8px; color:var(--text); line-height:1.5; }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top:0.5px solid var(--border); padding-top:10px; margin-top:6px;
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+  }
+  .f-left  { font-size:6.2px; color:var(--text-mid); }
+  .f-left strong { color:var(--text); font-weight:500; }
+  .f-mid   { font-size:5.8px; color:var(--text-lt); text-align:center; }
+  .f-right { font-size:6.2px; color:var(--text-mid); text-align:right; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="conf-tag">
+        <div class="dot"></div>
+        <span class="conf-label">LAK26 &nbsp;·&nbsp; Doctoral Consortium &nbsp;·&nbsp; Bergen, Norway &nbsp;·&nbsp; April–May 2026</span>
+      </div>
+      <div class="main-title">Beyond the Grade: An AI-Enhanced Framework<br>for <em>Dynamic</em> Student Competency Profiling</div>
+      <div class="subtitle" style="margin-top:5px;">Supplementing summative grades with continuous, evidence-based portraits of student development.<br>Grounded in France's national certification framework (RNCP).</div>
+    </div>
+    <div class="header-right">
+      <div class="phd-label">PhD Candidate</div>
+      <div class="author-name">Sonita TE</div>
+      <div class="university">Le Mans University</div>
+      <div class="tags">
+        <div class="tag"><span class="tag-dot"></span>Learning Analytics</div>
+        <div class="tag"><span class="tag-dot"></span>AI in Education</div>
+        <div class="tag"><span class="tag-dot"></span>Competency Profiling</div>
+        <div class="tag"><span class="tag-dot"></span>Human-in-the-Loop</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 1: Problem + RQs -->
+  <div class="two-col">
+    <div class="card card-coral">
+      <div class="sec-label">The Problem</div>
+      <div class="card-title">The strategic paradox of higher education</div>
+      <p>Traditional grading captures domain-specific output with precision — but renders invisible the longitudinal development of transversal competencies such as critical thinking, persistence, and creativity across internships, labs, and projects.</p>
+
+      <svg viewBox="0 0 330 122" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:8px 0 6px;">
+        <!-- Left: Grades capture -->
+        <rect x="0" y="0" width="148" height="122" rx="5" fill="#fef3ef" stroke="#f0b8a8" stroke-width="0.5"/>
+        <text x="74" y="13" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#c94420" font-weight="600" letter-spacing="0.1em">GRADES CAPTURE</text>
+        <rect x="8" y="20" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.18" stroke="#c94420" stroke-width="0.4"/>
+        <text x="74" y="31" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#8a3010">Domain knowledge</text>
+        <rect x="8" y="38" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.18" stroke="#c94420" stroke-width="0.4"/>
+        <text x="74" y="49" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#8a3010">Technical output</text>
+        <rect x="8" y="56" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.18" stroke="#c94420" stroke-width="0.4"/>
+        <text x="74" y="67" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#8a3010">Exam performance</text>
+        <rect x="8" y="74" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.05" stroke="#c94420" stroke-width="0.3" stroke-dasharray="3,2"/>
+        <text x="74" y="85" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#c94420" fill-opacity="0.4">Critical thinking</text>
+        <rect x="8" y="92" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.03" stroke="#c94420" stroke-width="0.3" stroke-dasharray="3,2"/>
+        <text x="74" y="103" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#c94420" fill-opacity="0.28">Resilience · Creativity</text>
+        <text x="74" y="117" text-anchor="middle" font-family="DM Sans" font-size="5.5" fill="#c94420" fill-opacity="0.4" font-style="italic">invisible to grades</text>
+        <!-- Middle -->
+        <text x="165" y="55" text-anchor="middle" font-family="DM Sans" font-size="16" fill="#9099ae">+</text>
+        <text x="165" y="72" text-anchor="middle" font-family="DM Sans" font-size="6" fill="#9099ae" font-style="italic">missing</text>
+        <text x="165" y="82" text-anchor="middle" font-family="DM Sans" font-size="6" fill="#9099ae" font-style="italic">layer</text>
+        <!-- Right: Transversal -->
+        <rect x="182" y="0" width="148" height="122" rx="5" fill="#eaf5f2" stroke="#90c4b5" stroke-width="0.5"/>
+        <text x="256" y="13" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#167a6a" font-weight="600" letter-spacing="0.1em">TRANSVERSAL</text>
+        <rect x="190" y="20" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
+        <text x="256" y="31" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#0a4a3a">Critical thinking</text>
+        <rect x="190" y="38" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
+        <text x="256" y="49" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#0a4a3a">Persistence</text>
+        <rect x="190" y="56" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
+        <text x="256" y="67" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#0a4a3a">Creative problem-solving</text>
+        <rect x="190" y="74" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
+        <text x="256" y="85" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#0a4a3a">Adaptability</text>
+        <rect x="190" y="92" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
+        <text x="256" y="103" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#0a4a3a">Self-regulation</text>
+        <text x="256" y="117" text-anchor="middle" font-family="DM Sans" font-size="5.5" fill="#167a6a" fill-opacity="0.6" font-style="italic">surfaced by this framework</text>
+      </svg>
+
+      <p style="font-style:italic;color:var(--text-mid);">As Milligan (2019) notes: assess what we value, not simply value what we assess.</p>
+    </div>
+
+    <div class="card">
+      <div class="sec-label">Research Questions</div>
+      <div class="card-title" style="margin-bottom:8px;">Three guiding inquiries</div>
+      <ul class="rq-list">
+        <li class="rq-item">
+          <span class="rq-num">RQ1</span>
+          <span class="rq-text">How can an <strong>AI+LA framework</strong> transform raw assessment data into objective evidence of transversal competencies to <strong>supplement</strong> traditional output-based grading?</span>
+        </li>
+        <li class="rq-item">
+          <span class="rq-num">RQ2</span>
+          <span class="rq-text">How can a <strong>Human-in-the-Loop</strong> approach calibrate this profile to balance immediate professionalization with a long-term formative mission?</span>
+        </li>
+        <li class="rq-item">
+          <span class="rq-num">RQ3</span>
+          <span class="rq-text">To what extent does a <strong>dynamic competency profile</strong> improve student self-awareness and resilience compared to traditional numerical indicators?</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ROW 2: Framework Diagram -->
+  <div class="diagram-wrap full-w">
+    <div class="sec-label teal">The Framework · Human-in-the-Loop Cycle</div>
+    <svg viewBox="0 0 740 318" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:8px 0 2px;">
+      <defs>
+        <marker id="aBlue"  markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#4a72a0"/></marker>
+        <marker id="aGreen" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3a8a5f"/></marker>
+        <marker id="aGray"  markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8a95a8"/></marker>
+      </defs>
+
+      <!-- Assessment Data (beige) -->
+      <rect x="270" y="6" width="200" height="46" rx="8" fill="#f0eee8" stroke="#c0b090" stroke-width="1"/>
+      <text x="370" y="24" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#5a5040" font-weight="600">Assessment Data</text>
+      <text x="370" y="42" text-anchor="middle" font-family="DM Sans" font-size="7.5" fill="#908878">Rubrics · Deliverables · Exams · Outcomes</text>
+
+      <!-- Assessment Data → AI+NLP -->
+      <line x1="370" y1="52" x2="370" y2="78" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
+
+      <!-- AI+NLP (blue) -->
+      <rect x="220" y="80" width="300" height="50" rx="8" fill="#eaeff6" stroke="#4a72a0" stroke-width="1"/>
+      <text x="370" y="101" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#2a5a8a" font-weight="600">AI + NLP</text>
+      <text x="370" y="118" text-anchor="middle" font-family="DM Sans" font-size="7.5" fill="#6a7a90">maps traces → éléments de preuve</text>
+
+      <!-- AI+NLP → Profile -->
+      <line x1="370" y1="130" x2="370" y2="155" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
+
+      <!-- Educator (green, left) -->
+      <rect x="28" y="158" width="150" height="50" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
+      <text x="103" y="179" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Educator</text>
+      <text x="103" y="196" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">qualitative context</text>
+
+      <!-- Student competency profile (coral, center) -->
+      <rect x="220" y="153" width="300" height="60" rx="8" fill="#fef3ef" stroke="#c94420" stroke-width="1.6"/>
+      <text x="370" y="178" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#a03818" font-weight="600">Student competency profile</text>
+      <text x="370" y="197" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#c07050">dynamic · evidence-based · RNCP-anchored</text>
+
+      <!-- Industry (green, right) -->
+      <rect x="562" y="158" width="150" height="50" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
+      <text x="637" y="179" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Industry</text>
+      <text x="637" y="196" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">market relevance</text>
+
+      <!-- Educator → Profile -->
+      <line x1="178" y1="183" x2="219" y2="183" stroke="#3a8a5f" stroke-width="1.2" marker-end="url(#aGreen)"/>
+      <!-- Profile → Industry -->
+      <line x1="520" y1="183" x2="561" y2="183" stroke="#3a8a5f" stroke-width="1.2" marker-end="url(#aGreen)"/>
+
+      <!-- Profile → Student -->
+      <line x1="370" y1="213" x2="370" y2="240" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
+
+      <!-- Student (green, bottom) -->
+      <rect x="210" y="242" width="320" height="46" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
+      <text x="370" y="262" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Student</text>
+      <text x="370" y="278" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">self-reflection · self-regulated learning</text>
+
+      <!-- Human loop LEFT: Educator up → horizontal → AI+NLP -->
+      <path d="M103,158 L103,105 L219,105" stroke="#3a8a5f" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#aGreen)"/>
+      <text x="116" y="130" font-family="DM Sans" font-size="6.5" fill="#3a8a5f">refines mapping</text>
+
+      <!-- Human loop RIGHT: Industry up → horizontal → AI+NLP -->
+      <path d="M637,158 L637,105 L521,105" stroke="#3a8a5f" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#aGreen)"/>
+      <text x="648" y="130" font-family="DM Sans" font-size="6.5" fill="#3a8a5f">updates criteria</text>
+
+      <!-- New cycle: Student → outer left → Assessment Data -->
+      <path d="M210,265 L14,265 L14,29 L269,29" stroke="#8a95a8" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#aGray)"/>
+      <text x="20" y="287" font-family="DM Sans" font-size="6.5" fill="#8a95a8">new traces</text>
+
+      <!-- Legend -->
+      <line x1="192" y1="308" x2="214" y2="308" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
+      <text x="219" y="312" font-family="DM Sans" font-size="7" fill="#6a7a90">AI flow</text>
+      <line x1="280" y1="308" x2="302" y2="308" stroke="#3a8a5f" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#aGreen)"/>
+      <text x="307" y="312" font-family="DM Sans" font-size="7" fill="#6a7a90">human loop</text>
+      <line x1="382" y1="308" x2="404" y2="308" stroke="#8a95a8" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#aGray)"/>
+      <text x="409" y="312" font-family="DM Sans" font-size="7" fill="#6a7a90">new cycle</text>
+    </svg>
+    <div class="diagram-cap">Fig. 1 — A continuous HITL loop, not a linear pipeline. Humans remain validators; AI provides synthesis.</div>
+  </div>
+
+  <!-- ROW 3: Methodology + Contributions -->
+  <div class="two-col">
+    <div class="card card-teal">
+      <div class="sec-label teal">Methodology · 3-Layer Architecture</div>
+      <div class="layers">
+        <div class="layer">
+          <div class="lnum l1">1</div>
+          <div>
+            <div class="l-title">Assessment Layer</div>
+            <div class="l-sub">Input: outcome data</div>
+            <div class="l-body">Structured data from formal assessments — project deliverables, rubric evaluations, exam results explicitly tied to specific learning outcomes.</div>
+            <span class="l-out">Raw evidence records</span>
+          </div>
+        </div>
+        <div class="flow-arr">↓</div>
+        <div class="layer">
+          <div class="lnum l2">2</div>
+          <div>
+            <div class="l-title">Context Layer — AI+NLP Mapping</div>
+            <div class="l-sub">Process: pedagogical translation</div>
+            <div class="l-body">NLP and pattern recognition map assessment artifacts to RNCP competency blocs. Grading outputs are synthesized into a broader evidence narrative.</div>
+            <span class="l-out">Competency signal narrative</span>
+          </div>
+        </div>
+        <div class="flow-arr">↓</div>
+        <div class="layer">
+          <div class="lnum l3">3</div>
+          <div>
+            <div class="l-title">Competency Layer — Stakeholder Calibration</div>
+            <div class="l-sub">Output: validated profile</div>
+            <div class="l-body">HITL validation by educators, industry mentors, and students. Dynamic profile verified by data, validated by humans — updated each cycle.</div>
+            <span class="l-out" style="border-color:var(--gold-bd);color:var(--gold);">Dynamic competency profile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sec-label">Expected Contributions</div>
+      <div class="contrib-grid">
+        <div class="contrib-item"><div class="c-type me">Methodological</div><div class="c-text">Replicable 3-layer architecture separating raw evidence from pedagogical intent and stakeholder calibration</div></div>
+        <div class="contrib-item"><div class="c-type te">Technical</div><div class="c-text">AI+NLP pipeline surfacing high-resolution proof of competencies invisible to summative metrics</div></div>
+        <div class="contrib-item"><div class="c-type pe">Pedagogical</div><div class="c-text">Profile as self-regulated learning instrument — assessment as self-awareness, not surveillance</div></div>
+        <div class="contrib-item"><div class="c-type st">Strategic</div><div class="c-text">HITL industry input keeps profile market-relevant while preserving the long-term formative mission</div></div>
+      </div>
+      <hr class="div">
+      <div class="sec-label">Current Status</div>
+      <div class="status-grid">
+        <div class="s-item s-done">✓&ensp;3-layer architecture conceptualized</div>
+        <div class="s-item s-done">✓&ensp;Literature review complete</div>
+        <div class="s-item s-prog">→&ensp;Pilot data collection (French context)</div>
+        <div class="s-item s-prog">→&ensp;AI+NLP pipeline development</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RNCP -->
+  <div class="rncp-box">
+    <div class="rncp-head">
+      <div class="rncp-badge">RNCP 37394 · The French Context</div>
+      <div class="rncp-title">Not just anchored — adaptably relevant</div>
+    </div>
+    <div class="rncp-body">
+      France's certification framework defines both <strong>blocs de compétences</strong> and <strong>éléments de preuve</strong> needed to validate them. The competency taxonomy is <strong>externally validated by the state</strong> — not researcher-defined. The AI finds proof that already meets this bar.
+    </div>
+    <div class="principle">
+      <strong>Key design principle: separate the evidence layer from the mapping layer.</strong> Raw traces are permanent. RNCP labels are one interpretation — re-mappable as definitions evolve. When industry signals competencies beyond current RNCP scope, the framework captures them as <strong>emerging signals</strong>, potentially informing future national certification revision.
+    </div>
+  </div>
+
+  <!-- DC Discussion -->
+  <div class="dc-box">
+    <div class="dc-label">DC Discussion · Seeking Your Expertise</div>
+    <div class="dc-title">Three open questions for the consortium</div>
+    <div class="dc-qs">
+      <div class="dc-q">
+        <div class="dc-icon">Q1</div>
+        <div>
+          <div class="dc-qlabel">On Data Sparsity</div>
+          <div class="dc-qtext">Rubric evaluations and project artifacts are often brief compared to typical NLP datasets. How can we ensure reliable AI mapping without massive data for every specific competency?</div>
+        </div>
+      </div>
+      <div class="dc-q">
+        <div class="dc-icon">Q2</div>
+        <div>
+          <div class="dc-qlabel">On HITL Scalability</div>
+          <div class="dc-qtext">Asking educators to validate AI outputs for every student could become overwhelming. What are practical ways to keep this human review step light and manageable?</div>
+        </div>
+      </div>
+      <div class="dc-q">
+        <div class="dc-icon">Q3</div>
+        <div>
+          <div class="dc-qlabel">On Student Agency</div>
+          <div class="dc-qtext">Since this profile supplements rather than replaces the final grade, what design elements ensure students actually engage with it for self-regulation rather than ignoring it?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="f-left"><strong>Sonita TE</strong>&ensp;·&ensp;PhD Candidate&ensp;·&ensp;LAK26 Doctoral Consortium&ensp;·&ensp;Bergen 2026</div>
+    <div class="f-mid">Kuh et al. (2008) · Siemens &amp; Baker (2012) · Namoun &amp; Alshanqiti (2021) · Viberg et al. (2018) · RNCP-37394</div>
+    <div class="f-right">Learning Analytics · AI in Education · HITL · Transversal Competencies</div>
+  </div>
+
+</div>
+</body>
+</html>
