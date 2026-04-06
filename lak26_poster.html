@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAK26 DC Poster – Sonita TE</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
   :root {
     --bg:       #ffffff;
@@ -33,7 +34,54 @@
     display: flex;
     justify-content: center;
     padding: 24px 0 40px;
+    cursor: pointer;
   }
+
+  /* ── SAVE UI ── */
+  .click-hint{
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:rgba(99,107,126,.45);display:flex;align-items:center;gap:10px;
+    pointer-events:none;transition:opacity .4s;animation:hintP 2.5s ease-in-out infinite;
+  }
+  .click-hint.hidden{opacity:0}
+  .click-hint-dot{
+    width:22px;height:22px;border:1.5px solid rgba(99,107,126,.25);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    animation:hintR 2.5s ease-in-out infinite;
+  }
+  .click-hint-dot::after{content:'';width:5px;height:5px;background:rgba(99,107,126,.3);border-radius:50%}
+  @keyframes hintP{0%,100%{opacity:.4}50%{opacity:.85}}
+  @keyframes hintR{0%,100%{transform:scale(1);border-color:rgba(99,107,126,.12)}50%{transform:scale(1.15);border-color:rgba(99,107,126,.4)}}
+
+  .save-btn-wrap{
+    position:fixed;top:18px;right:24px;z-index:9999;
+    opacity:0;transform:translateY(-16px);pointer-events:none;
+    transition:opacity .35s ease,transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .save-btn-wrap.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+  .save-btn{
+    font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
+    color:#fff;background:var(--coral);border:none;border-radius:8px;
+    padding:9px 18px;cursor:pointer;display:flex;align-items:center;gap:7px;
+    transition:all .2s;box-shadow:0 4px 16px rgba(201,68,32,.25);
+  }
+  .save-btn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,68,32,.3)}
+  .save-btn:active{transform:translateY(0)}
+  .save-btn:disabled{opacity:.5;cursor:wait;transform:none;filter:none}
+  .save-btn svg{width:15px;height:15px;flex-shrink:0}
+
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(50px);
+    background:var(--teal);color:white;font-family:'DM Sans',sans-serif;
+    font-size:13px;font-weight:500;padding:11px 22px;border-radius:8px;z-index:99999;
+    opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.25,.46,.45,.94);
+    box-shadow:0 6px 24px rgba(0,0,0,.12);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.error{background:var(--coral)}
+  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
   .poster {
     width: 794px;
     min-height: 1123px;
@@ -201,7 +249,22 @@
 </style>
 </head>
 <body>
-<div class="poster">
+
+<div class="click-hint" id="clickHint">
+  <div class="click-hint-dot"></div>
+  Click anywhere to save
+</div>
+
+<div class="save-btn-wrap" id="saveWrap">
+  <button class="save-btn" id="saveBtn" onclick="event.stopPropagation();savePNG()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Save PNG
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="poster" id="poster">
 
   <!-- HEADER -->
   <div class="header">
@@ -234,7 +297,6 @@
       <p>Traditional grading captures domain-specific output with precision — but renders invisible the longitudinal development of transversal competencies such as critical thinking, persistence, and creativity across internships, labs, and projects.</p>
 
       <svg viewBox="0 0 330 122" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin:8px 0 6px;">
-        <!-- Left: Grades capture -->
         <rect x="0" y="0" width="148" height="122" rx="5" fill="#fef3ef" stroke="#f0b8a8" stroke-width="0.5"/>
         <text x="74" y="13" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#c94420" font-weight="600" letter-spacing="0.1em">GRADES CAPTURE</text>
         <rect x="8" y="20" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.18" stroke="#c94420" stroke-width="0.4"/>
@@ -248,11 +310,9 @@
         <rect x="8" y="92" width="132" height="15" rx="3" fill="#c94420" fill-opacity="0.03" stroke="#c94420" stroke-width="0.3" stroke-dasharray="3,2"/>
         <text x="74" y="103" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#c94420" fill-opacity="0.28">Resilience · Creativity</text>
         <text x="74" y="117" text-anchor="middle" font-family="DM Sans" font-size="5.5" fill="#c94420" fill-opacity="0.4" font-style="italic">invisible to grades</text>
-        <!-- Middle -->
         <text x="165" y="55" text-anchor="middle" font-family="DM Sans" font-size="16" fill="#9099ae">+</text>
         <text x="165" y="72" text-anchor="middle" font-family="DM Sans" font-size="6" fill="#9099ae" font-style="italic">missing</text>
         <text x="165" y="82" text-anchor="middle" font-family="DM Sans" font-size="6" fill="#9099ae" font-style="italic">layer</text>
-        <!-- Right: Transversal -->
         <rect x="182" y="0" width="148" height="122" rx="5" fill="#eaf5f2" stroke="#90c4b5" stroke-width="0.5"/>
         <text x="256" y="13" text-anchor="middle" font-family="DM Sans" font-size="6.5" fill="#167a6a" font-weight="600" letter-spacing="0.1em">TRANSVERSAL</text>
         <rect x="190" y="20" width="132" height="15" rx="3" fill="#167a6a" fill-opacity="0.18" stroke="#167a6a" stroke-width="0.4"/>
@@ -300,64 +360,35 @@
         <marker id="aGreen" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3a8a5f"/></marker>
         <marker id="aGray"  markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8a95a8"/></marker>
       </defs>
-
-      <!-- Assessment Data (beige) -->
       <rect x="270" y="6" width="200" height="46" rx="8" fill="#f0eee8" stroke="#c0b090" stroke-width="1"/>
       <text x="370" y="24" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#5a5040" font-weight="600">Assessment Data</text>
       <text x="370" y="42" text-anchor="middle" font-family="DM Sans" font-size="7.5" fill="#908878">Rubrics · Deliverables · Exams · Outcomes</text>
-
-      <!-- Assessment Data → AI+NLP -->
       <line x1="370" y1="52" x2="370" y2="78" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
-
-      <!-- AI+NLP (blue) -->
       <rect x="220" y="80" width="300" height="50" rx="8" fill="#eaeff6" stroke="#4a72a0" stroke-width="1"/>
       <text x="370" y="101" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#2a5a8a" font-weight="600">AI + NLP</text>
       <text x="370" y="118" text-anchor="middle" font-family="DM Sans" font-size="7.5" fill="#6a7a90">maps traces → éléments de preuve</text>
-
-      <!-- AI+NLP → Profile -->
       <line x1="370" y1="130" x2="370" y2="155" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
-
-      <!-- Educator (green, left) -->
       <rect x="28" y="158" width="150" height="50" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
       <text x="103" y="179" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Educator</text>
       <text x="103" y="196" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">qualitative context</text>
-
-      <!-- Student competency profile (coral, center) -->
       <rect x="220" y="153" width="300" height="60" rx="8" fill="#fef3ef" stroke="#c94420" stroke-width="1.6"/>
       <text x="370" y="178" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#a03818" font-weight="600">Student competency profile</text>
       <text x="370" y="197" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#c07050">dynamic · evidence-based · RNCP-anchored</text>
-
-      <!-- Industry (green, right) -->
       <rect x="562" y="158" width="150" height="50" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
       <text x="637" y="179" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Industry</text>
       <text x="637" y="196" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">market relevance</text>
-
-      <!-- Educator → Profile -->
       <line x1="178" y1="183" x2="219" y2="183" stroke="#3a8a5f" stroke-width="1.2" marker-end="url(#aGreen)"/>
-      <!-- Profile → Industry -->
       <line x1="520" y1="183" x2="561" y2="183" stroke="#3a8a5f" stroke-width="1.2" marker-end="url(#aGreen)"/>
-
-      <!-- Profile → Student -->
       <line x1="370" y1="213" x2="370" y2="240" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
-
-      <!-- Student (green, bottom) -->
       <rect x="210" y="242" width="320" height="46" rx="8" fill="#e8f4ee" stroke="#3a8a5f" stroke-width="1"/>
       <text x="370" y="262" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#2a6a4a" font-weight="600">Student</text>
       <text x="370" y="278" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#5a8a6a">self-reflection · self-regulated learning</text>
-
-      <!-- Human loop LEFT: Educator up → horizontal → AI+NLP -->
       <path d="M103,158 L103,105 L219,105" stroke="#3a8a5f" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#aGreen)"/>
       <text x="116" y="130" font-family="DM Sans" font-size="6.5" fill="#3a8a5f">refines mapping</text>
-
-      <!-- Human loop RIGHT: Industry up → horizontal → AI+NLP -->
       <path d="M637,158 L637,105 L521,105" stroke="#3a8a5f" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#aGreen)"/>
       <text x="648" y="130" font-family="DM Sans" font-size="6.5" fill="#3a8a5f">updates criteria</text>
-
-      <!-- New cycle: Student → outer left → Assessment Data -->
       <path d="M210,265 L14,265 L14,29 L269,29" stroke="#8a95a8" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#aGray)"/>
       <text x="20" y="287" font-family="DM Sans" font-size="6.5" fill="#8a95a8">new traces</text>
-
-      <!-- Legend -->
       <line x1="192" y1="308" x2="214" y2="308" stroke="#4a72a0" stroke-width="1.4" marker-end="url(#aBlue)"/>
       <text x="219" y="312" font-family="DM Sans" font-size="7" fill="#6a7a90">AI flow</text>
       <line x1="280" y1="308" x2="302" y2="308" stroke="#3a8a5f" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#aGreen)"/>
@@ -475,5 +506,34 @@
   </div>
 
 </div>
+
+<script>
+  const poster=document.getElementById('poster'),saveWrap=document.getElementById('saveWrap'),
+    saveBtn=document.getElementById('saveBtn'),clickHint=document.getElementById('clickHint'),
+    toast=document.getElementById('toast');let btnVisible=false;
+  document.body.addEventListener('click',e=>{
+    if(e.target.closest('.save-btn-wrap'))return;
+    btnVisible=!btnVisible;
+    saveWrap.classList.toggle('visible',btnVisible);
+    clickHint.classList.toggle('hidden',btnVisible);
+    document.body.style.cursor=btnVisible?'default':'pointer';
+  });
+  function showToast(m,err){
+    toast.textContent=m;toast.className='toast'+(err?' error':'');
+    requestAnimationFrame(()=>toast.classList.add('show'));
+    setTimeout(()=>toast.classList.remove('show'),3500);
+  }
+  async function savePNG(){
+    saveBtn.disabled=true;
+    saveBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Rendering…';
+    try{
+      const c=await html2canvas(poster,{backgroundColor:'#ffffff',scale:3,useCORS:true,logging:false,width:794,height:poster.scrollHeight});
+      const a=document.createElement('a');a.download='LAK26_DC_Poster_SonitaTE.png';a.href=c.toDataURL('image/png');a.click();
+      showToast('✓ Saved — '+Math.round(c.width/3)+' × '+Math.round(c.height/3)+' px (×3 for sharpness)');
+    }catch(e){console.error(e);showToast('Error: '+e.message,true)}
+    saveBtn.disabled=false;
+    saveBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Save PNG';
+  }
+</script>
 </body>
 </html>
